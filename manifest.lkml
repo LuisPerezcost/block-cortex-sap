@@ -1,20 +1,20 @@
 constant: CONNECTION_NAME {
-  value: "cortex"
+  value: "looker_qa"
   export: override_required
 }
 
 constant: GCP_PROJECT {
-  value: "GCP Project ID"
+  value: "lacostena-datalake-qa"
   export: override_required
 }
 
 constant: REPORTING_DATASET {
-  value: "Reporting Dataset Name"
+  value: "QAS_REPORTING"
   export: override_required
 }
 
 constant: CLIENT {
-  value: "Client ID"
+  value: "100"
   export: override_required
 }
 
