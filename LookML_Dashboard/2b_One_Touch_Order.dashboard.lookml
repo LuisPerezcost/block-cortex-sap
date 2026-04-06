@@ -18,7 +18,7 @@
       sales_orders.max_bill_to_party_name]
     filters:
       sales_orders.sales_order_status: Closed
-      deliveries.date_created_erdat_date: 2022/01/01 to 2022/04/22
+      deliveries.date_created_erdat_date: 2025/01/01 to 2025/04/22
       sales_orders.division_spart: ''
     sorts: [sales_orders.max_sold_to_party_name desc]
     limit: 500
@@ -157,7 +157,7 @@
   - name: Year
     title: Year
     type: field_filter
-    default_value: 2022/01/01 to 2022/04/22
+    default_value: 2025/01/01 to 2025/04/22
     allow_multiple_values: true
     required: false
     ui_config:
