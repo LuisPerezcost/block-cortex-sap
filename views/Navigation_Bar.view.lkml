@@ -1,10 +1,10 @@
 view: Navigation_Bar {
   derived_table: {
-    sql: Select 'Order Fullfilment' AS Dashboard_Name
-      UNION ALL Select 'Order Status Snapshort' AS Dashboard_Name
-      UNION ALL Select 'Sales Order Metrics' AS Dashboard_Name
-      UNION ALL Select 'Sales Performance' AS Dashboard_Name
-      UNION ALL Select 'Billing And Pricing' AS Dashboard_Name
+    sql: Select 'Cumplimiento de Pedidos de venta' AS Dashboard_Name
+      UNION ALL Select 'Resumen de Estado de Pedidos' AS Dashboard_Name
+      UNION ALL Select 'Métricas de Pedidos de Venta' AS Dashboard_Name
+      UNION ALL Select 'Rendimiento De Ventas' AS Dashboard_Name
+      UNION ALL Select 'Facturación y Precios' AS Dashboard_Name
        ;;
   }
 
@@ -17,11 +17,11 @@ view: Navigation_Bar {
     <div style="background-color: #FFFFFF; height:525px;width:100%"></div>
       <div style="background-color: #FFFFFF; border: solid 1px #4285F4; border-radius: 5px; padding: 5px 10px; height: 60px; width:100%">
         <nav style="font-size: 18px; color: #4285F4">
-          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_sap_operational::order_fulfillment?">Order Fulfillment</a>
-          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_sap_operational::order_status_snapshot?">Order Status Snapshot</a>
-          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_sap_operational::order_details?">Order Details</a>
-          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_sap_operational::sales_performance?">Sales Performance</a>
-          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_sap_operational::billing_and_pricing?">Billing and Pricing</a>
+          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://3aa1f69f-716c-4e46-be54-774e2185ef26.looker.app/dashboards/56?">Cumplimiento de Pedidos de ventas</a>
+          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://3aa1f69f-716c-4e46-be54-774e2185ef26.looker.app/dashboards/54?">Resumen de Estado de Pedidos</a>
+          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://3aa1f69f-716c-4e46-be54-774e2185ef26.looker.app/dashboards/55?">Detalles de Pedidos</a>
+          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://3aa1f69f-716c-4e46-be54-774e2185ef26.looker.app/dashboards/53?">Rendimiento De Ventas</a>
+          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://3aa1f69f-716c-4e46-be54-774e2185ef26.looker.app/dashboards/57?">Facturación y Precios</a>
         </nav>
         </nav>
       </div>

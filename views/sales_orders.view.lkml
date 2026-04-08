@@ -619,11 +619,13 @@ view: sales_orders {
 
   dimension: document_category_vbtyp {
     type: string
+    hidden: no
     sql: ${TABLE}.DocumentCategory_VBTYP ;;
   }
 
   dimension_group: document_date_audat {
     type: time
+    hidden: no
     timeframes: [
       raw,
       date,
@@ -964,7 +966,14 @@ view: sales_orders {
 
   dimension: sales_order_net_price_local_currency {
     type: number
+    hidden: no
     sql: ${TABLE}.NetPrice_NETPR ;;
+  }
+
+  measure: ValN_pos {
+    type: sum
+    hidden: no
+    sql: ${TABLE}.NetPrice_NETWR ;;
   }
 
   dimension: sales_order_net_price_glob_curr {
@@ -2234,7 +2243,7 @@ view: sales_orders {
     value_format_name: "Greek_Number_Format"
     sql: sum(${sales_order_netvalue_glob_curr}) ;;
     link: {
-      label: "Sales Performance by Product"
+      label: "prueba"
       url: "/dashboards/cortex_sap_operational::sap_order_to_cash_o2c_04_c_sales_performance_by_productperformance_tuning?Region={{ _filters['countries_md.country_name_landx']| url_encode }}&Year={{ _filters['sales_orders.creation_date_erdat_date']| url_encode }}&Sales+Org={{ _filters['sales_organizations_md.sales_org_name_vtext']| url_encode }}&Distribution+Channel={{ _filters['distribution_channels_md.distribution_channel_name_vtext']| url_encode }}&Product={{ _filters['materials_md.material_text_maktx']| url_encode }}&Division={{ _filters['divisions_md.division_name_vtext']| url_encode }}&Currency={{ _filters['currency_conversion_new.tcurr']| url_encode }}"
     }
     hidden: no
@@ -2348,11 +2357,11 @@ view: sales_orders {
       <div style="background-color: #FFFFFF; border: solid 1px #4285F4; border-radius: 5px; padding: 5px 10px; height: 60px; width:100%">
         <nav style="font-size: 18px; color: #4285F4">
 
-      <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_sap_operational::sap_order_to_cash_02c_01_order_fulfillment_performance_tuning?Region={{ _filters['countries_md.country_name_landx']| url_encode }}&Year={{ _filters['sales_orders.creation_date_erdat_date']| url_encode }}&Sales+Org={{ _filters['sales_organizations_md.sales_org_name_vtext']| url_encode }}&Distribution+Channel={{ _filters['distribution_channels_md.distribution_channel_name_vtext']| url_encode }}&Product={{ _filters['materials_md.material_text_maktx']| url_encode }}&Division={{ _filters['divisions_md.division_name_vtext']| url_encode }}&ampCurrency={{ _filters['currency_conversion_new.tcurr']| url_encode }}">Order Fulfillment</a>
-      <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_sap_operational::sap_order_to_cash_o2c_02_order_status_snapshot?Region={{ _filters['countries_md.country_name_landx']| url_encode }}&Year={{ _filters['sales_orders.creation_date_erdat_date']| url_encode }}&Sales+Org={{ _filters['sales_organizations_md.sales_org_name_vtext']| url_encode }}&Distribution+Channel={{ _filters['distribution_channels_md.distribution_channel_name_vtext']| url_encode }}&Product={{ _filters['materials_md.material_text_maktx']| url_encode }}&Division={{ _filters['divisions_md.division_name_vtext']| url_encode }}&ampCurrency={{ _filters['currency_conversion_new.tcurr']| url_encode }}">Order Status Snapshot</a>
-      <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_sap_operational::sap_order_to_cash_o2c_03_order_detailsperformance_tuning?Region={{ _filters['countries_md.country_name_landx']| url_encode }}&Year={{ _filters['sales_orders.creation_date_erdat_date']| url_encode }}&Sales+Org={{ _filters['sales_organizations_md.sales_org_name_vtext']| url_encode }}&Distribution+Channel={{ _filters['distribution_channels_md.distribution_channel_name_vtext']| url_encode }}&Product={{ _filters['materials_md.material_text_maktx']| url_encode }}&Division={{ _filters['divisions_md.division_name_vtext']| url_encode }}&ampCurrency={{ _filters['currency_conversion_new.tcurr']| url_encode }}">Order Details</a>
-      <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_sap_operational::sap_order_to_cash_o2c_04_sales_performanceperformance_tuning?Region={{ _filters['countries_md.country_name_landx']| url_encode }}&Year={{ _filters['sales_orders.creation_date_erdat_date']| url_encode }}&Sales+Org={{ _filters['sales_organizations_md.sales_org_name_vtext']| url_encode }}&Distribution+Channel={{ _filters['distribution_channels_md.distribution_channel_name_vtext']| url_encode }}&Product={{ _filters['materials_md.material_text_maktx']| url_encode }}&Division={{ _filters['divisions_md.division_name_vtext']| url_encode }}&ampCurrency={{ _filters['currency_conversion_new.tcurr']| url_encode }}">Sales Performance</a>
-      <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_sap_operational::sap_order_to_cash_o2c_05_billing_and_pricing?Region={{ _filters['countries_md.country_name_landx']| url_encode }}&Year={{ _filters['sales_orders.creation_date_erdat_date']| url_encode }}&Sales+Org={{ _filters['sales_organizations_md.sales_org_name_vtext']| url_encode }}&Distribution+Channel={{ _filters['distribution_channels_md.distribution_channel_name_vtext']| url_encode }}&Product={{ _filters['materials_md.material_text_maktx']| url_encode }}&Division={{ _filters['divisions_md.division_name_vtext']| url_encode }}&ampCurrency={{ _filters['currency_conversion_new.tcurr']| url_encode }}">Billing and Pricing</a>
+      <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://3aa1f69f-716c-4e46-be54-774e2185ef26.looker.app/dashboards/56?Region={{ _filters['countries_md.country_name_landx']| url_encode }}&Year={{ _filters['sales_orders.creation_date_erdat_date']| url_encode }}&Sales+Org={{ _filters['sales_organizations_md.sales_org_name_vtext']| url_encode }}&Distribution+Channel={{ _filters['distribution_channels_md.distribution_channel_name_vtext']| url_encode }}&Product={{ _filters['materials_md.material_text_maktx']| url_encode }}&Division={{ _filters['divisions_md.division_name_vtext']| url_encode }}&ampCurrency={{ _filters['currency_conversion_new.tcurr']| url_encode }}">Cumplimiento de Pedidos de Venta</a>
+      <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://3aa1f69f-716c-4e46-be54-774e2185ef26.looker.app/dashboards/54?Region={{ _filters['countries_md.country_name_landx']| url_encode }}&Year={{ _filters['sales_orders.creation_date_erdat_date']| url_encode }}&Sales+Org={{ _filters['sales_organizations_md.sales_org_name_vtext']| url_encode }}&Distribution+Channel={{ _filters['distribution_channels_md.distribution_channel_name_vtext']| url_encode }}&Product={{ _filters['materials_md.material_text_maktx']| url_encode }}&Division={{ _filters['divisions_md.division_name_vtext']| url_encode }}&ampCurrency={{ _filters['currency_conversion_new.tcurr']| url_encode }}">Resumen de Estado de Pedidos</a>
+      <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://3aa1f69f-716c-4e46-be54-774e2185ef26.looker.app/dashboards/55?Region={{ _filters['countries_md.country_name_landx']| url_encode }}&Year={{ _filters['sales_orders.creation_date_erdat_date']| url_encode }}&Sales+Org={{ _filters['sales_organizations_md.sales_org_name_vtext']| url_encode }}&Distribution+Channel={{ _filters['distribution_channels_md.distribution_channel_name_vtext']| url_encode }}&Product={{ _filters['materials_md.material_text_maktx']| url_encode }}&Division={{ _filters['divisions_md.division_name_vtext']| url_encode }}&ampCurrency={{ _filters['currency_conversion_new.tcurr']| url_encode }}">Detalles de Pedidos</a>
+      <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://3aa1f69f-716c-4e46-be54-774e2185ef26.looker.app/dashboards/53?Region={{ _filters['countries_md.country_name_landx']| url_encode }}&Year={{ _filters['sales_orders.creation_date_erdat_date']| url_encode }}&Sales+Org={{ _filters['sales_organizations_md.sales_org_name_vtext']| url_encode }}&Distribution+Channel={{ _filters['distribution_channels_md.distribution_channel_name_vtext']| url_encode }}&Product={{ _filters['materials_md.material_text_maktx']| url_encode }}&Division={{ _filters['divisions_md.division_name_vtext']| url_encode }}&ampCurrency={{ _filters['currency_conversion_new.tcurr']| url_encode }}">Rendimiento De Ventas</a>
+      <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://3aa1f69f-716c-4e46-be54-774e2185ef26.looker.app/dashboards/57?Region={{ _filters['countries_md.country_name_landx']| url_encode }}&Year={{ _filters['sales_orders.creation_date_erdat_date']| url_encode }}&Sales+Org={{ _filters['sales_organizations_md.sales_org_name_vtext']| url_encode }}&Distribution+Channel={{ _filters['distribution_channels_md.distribution_channel_name_vtext']| url_encode }}&Product={{ _filters['materials_md.material_text_maktx']| url_encode }}&Division={{ _filters['divisions_md.division_name_vtext']| url_encode }}&ampCurrency={{ _filters['currency_conversion_new.tcurr']| url_encode }}">Facturación y Precios</a>
       </nav>
       </div>
       <div style="background-color: #FFFFFF; height:500px;width:100%"></div>;;
@@ -2362,27 +2371,27 @@ view: sales_orders {
     type: string
     hidden: no
     sql: "Home" ;;
-    html:<nav style="font-size: 20px; color: #4285F4"><a style="padding: 5px; float: center; line-height: 40px" href="/dashboards/cortex_sap_operational::sap_order_to_cash_02c_01_order_fulfillment_performance_tuning?Region={{ _filters['countries_md.country_name_landx']| url_encode }}&Year={{ _filters['sales_orders.creation_date_erdat_date']| url_encode }}&Sales+Org={{ _filters['sales_organizations_md.sales_org_name_vtext']| url_encode }}&Distribution+Channel={{ _filters['distribution_channels_md.distribution_channel_name_vtext']| url_encode }}&Product={{ _filters['materials_md.material_text_maktx']| url_encode }}&Division={{ _filters['divisions_md.division_name_vtext']| url_encode }}&ampCurrency={{ _filters['currency_conversion_new.tcurr']| url_encode }}">{{value}}</a></nav>  ;;
+    html:<nav style="font-size: 20px; color: #4285F4"><a style="padding: 5px; float: center; line-height: 40px" href="https://3aa1f69f-716c-4e46-be54-774e2185ef26.looker.app/dashboards/56?Region={{ _filters['countries_md.country_name_landx']| url_encode }}&Year={{ _filters['sales_orders.creation_date_erdat_date']| url_encode }}&Sales+Org={{ _filters['sales_organizations_md.sales_org_name_vtext']| url_encode }}&Distribution+Channel={{ _filters['distribution_channels_md.distribution_channel_name_vtext']| url_encode }}&Product={{ _filters['materials_md.material_text_maktx']| url_encode }}&Division={{ _filters['divisions_md.division_name_vtext']| url_encode }}&ampCurrency={{ _filters['currency_conversion_new.tcurr']| url_encode }}">{{value}}</a></nav>  ;;
   }
 
   measure: order_snapshot{
     type: string
     hidden: no
     sql: "Home" ;;
-    html:<nav style="font-size: 20px; color: #4285F4"><a style="padding: 5px; float: center; line-height: 40px" href="/dashboards/cortex_sap_operational::sap_order_to_cash_o2c_02_order_status_snapshot?Region={{ _filters['countries_md.country_name_landx']| url_encode }}&Year={{ _filters['sales_orders.creation_date_erdat_date']| url_encode }}&Sales+Org={{ _filters['sales_organizations_md.sales_org_name_vtext']| url_encode }}&Distribution+Channel={{ _filters['distribution_channels_md.distribution_channel_name_vtext']| url_encode }}&Product={{ _filters['materials_md.material_text_maktx']| url_encode }}&Division={{ _filters['divisions_md.division_name_vtext']| url_encode }}&ampCurrency={{ _filters['currency_conversion_new.tcurr']| url_encode }}">{{value}}</a></nav>  ;;
+    html:<nav style="font-size: 20px; color: #4285F4"><a style="padding: 5px; float: center; line-height: 40px" href="https://3aa1f69f-716c-4e46-be54-774e2185ef26.looker.app/dashboards/54?Region={{ _filters['countries_md.country_name_landx']| url_encode }}&Year={{ _filters['sales_orders.creation_date_erdat_date']| url_encode }}&Sales+Org={{ _filters['sales_organizations_md.sales_org_name_vtext']| url_encode }}&Distribution+Channel={{ _filters['distribution_channels_md.distribution_channel_name_vtext']| url_encode }}&Product={{ _filters['materials_md.material_text_maktx']| url_encode }}&Division={{ _filters['divisions_md.division_name_vtext']| url_encode }}&ampCurrency={{ _filters['currency_conversion_new.tcurr']| url_encode }}">{{value}}</a></nav>  ;;
   }
 
   measure: Order_details{
     type: string
     hidden: no
     sql: "Home" ;;
-    html:<nav style="font-size: 20px; color: #4285F4"><a style="padding: 5px; float: center; line-height: 40px" href="/dashboards/cortex_sap_operational::sap_order_to_cash_o2c_03_order_detailsperformance_tuning?Region={{ _filters['countries_md.country_name_landx']| url_encode }}&Year={{ _filters['sales_orders.creation_date_erdat_date']| url_encode }}&Sales+Org={{ _filters['sales_organizations_md.sales_org_name_vtext']| url_encode }}&Distribution+Channel={{ _filters['distribution_channels_md.distribution_channel_name_vtext']| url_encode }}&Product={{ _filters['materials_md.material_text_maktx']| url_encode }}&Division={{ _filters['divisions_md.division_name_vtext']| url_encode }}&ampCurrency={{ _filters['currency_conversion_new.tcurr']| url_encode }}">{{value}}</a></nav>  ;;
+    html:<nav style="font-size: 20px; color: #4285F4"><a style="padding: 5px; float: center; line-height: 40px" href="https://3aa1f69f-716c-4e46-be54-774e2185ef26.looker.app/dashboards/55?Region={{ _filters['countries_md.country_name_landx']| url_encode }}&Year={{ _filters['sales_orders.creation_date_erdat_date']| url_encode }}&Sales+Org={{ _filters['sales_organizations_md.sales_org_name_vtext']| url_encode }}&Distribution+Channel={{ _filters['distribution_channels_md.distribution_channel_name_vtext']| url_encode }}&Product={{ _filters['materials_md.material_text_maktx']| url_encode }}&Division={{ _filters['divisions_md.division_name_vtext']| url_encode }}&ampCurrency={{ _filters['currency_conversion_new.tcurr']| url_encode }}">{{value}}</a></nav>  ;;
   }
 
   measure: Sales_performance{
     type: string
     sql: "Home" ;;
-    html:<nav style="font-size: 20px; color: #4285F4"><a style="padding: 5px; float: center; line-height: 40px" href="/dashboards/cortex_sap_operational::sap_order_to_cash_o2c_04_sales_performanceperformance_tuning?Region={{ _filters['countries_md.country_name_landx']| url_encode }}&Year={{ _filters['sales_orders.creation_date_erdat_date']| url_encode }}&Sales+Org={{ _filters['sales_organizations_md.sales_org_name_vtext']| url_encode }}&Distribution+Channel={{ _filters['distribution_channels_md.distribution_channel_name_vtext']| url_encode }}&Product={{ _filters['materials_md.material_text_maktx']| url_encode }}&Division={{ _filters['divisions_md.division_name_vtext']| url_encode }}&ampCurrency={{ _filters['currency_conversion_new.tcurr']| url_encode }}">{{value}}</a></nav>  ;;
+    html:<nav style="font-size: 20px; color: #4285F4"><a style="padding: 5px; float: center; line-height: 40px" href="https://3aa1f69f-716c-4e46-be54-774e2185ef26.looker.app/dashboards/53?Region={{ _filters['countries_md.country_name_landx']| url_encode }}&Year={{ _filters['sales_orders.creation_date_erdat_date']| url_encode }}&Sales+Org={{ _filters['sales_organizations_md.sales_org_name_vtext']| url_encode }}&Distribution+Channel={{ _filters['distribution_channels_md.distribution_channel_name_vtext']| url_encode }}&Product={{ _filters['materials_md.material_text_maktx']| url_encode }}&Division={{ _filters['divisions_md.division_name_vtext']| url_encode }}&ampCurrency={{ _filters['currency_conversion_new.tcurr']| url_encode }}">{{value}}</a></nav>  ;;
     hidden: no
   }
 
@@ -2390,7 +2399,7 @@ view: sales_orders {
     type: string
     hidden: no
     sql: "Home" ;;
-    html:<nav style="font-size: 20px; color: #4285F4"><a style="padding: 5px; float: center; line-height: 40px" href="/dashboards/cortex_sap_operational::sap_order_to_cash_o2c_05_billing_and_pricing?Region={{ _filters['countries_md.country_name_landx']| url_encode }}&Year={{ _filters['sales_orders.creation_date_erdat_date']| url_encode }}&Sales+Org={{ _filters['sales_organizations_md.sales_org_name_vtext']| url_encode }}&Distribution+Channel={{ _filters['distribution_channels_md.distribution_channel_name_vtext']| url_encode }}&Product={{ _filters['materials_md.material_text_maktx']| url_encode }}&Division={{ _filters['divisions_md.division_name_vtext']| url_encode }}&ampCurrency={{ _filters['currency_conversion_new.tcurr']| url_encode }}">{{value}}</a></nav>  ;;
+    html:<nav style="font-size: 20px; color: #4285F4"><a style="padding: 5px; float: center; line-height: 40px" href="https://3aa1f69f-716c-4e46-be54-774e2185ef26.looker.app/dashboards/57?Region={{ _filters['countries_md.country_name_landx']| url_encode }}&Year={{ _filters['sales_orders.creation_date_erdat_date']| url_encode }}&Sales+Org={{ _filters['sales_organizations_md.sales_org_name_vtext']| url_encode }}&Distribution+Channel={{ _filters['distribution_channels_md.distribution_channel_name_vtext']| url_encode }}&Product={{ _filters['materials_md.material_text_maktx']| url_encode }}&Division={{ _filters['divisions_md.division_name_vtext']| url_encode }}&ampCurrency={{ _filters['currency_conversion_new.tcurr']| url_encode }}">{{value}}</a></nav>  ;;
   }
 
 }
