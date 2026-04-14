@@ -3,7 +3,7 @@ view: inventory_metrics_overview {
     sql: select * from `@{GCP_PROJECT}.@{REPORTING_DATASET}.InventoryKeyMetrics`
       ;;
   }
-  
+
   fields_hidden_by_default: yes
 
   dimension: key {
@@ -100,7 +100,7 @@ view: inventory_metrics_overview {
   measure: average_days_of_supply {
     type: average
     sql:  ${days_of_supply} ;;
-    label: "Days Of Supply"
+    label: "Días de Suministro"
     value_format: "0"
     filters: [days_of_supply : ">=0"]
     drill_fields: [material_group_name_wgbez,material_type,material_number_matnr,material_text_maktx,average_days_of_supply]
@@ -131,7 +131,7 @@ view: inventory_metrics_overview {
 
   measure: average_inventory_turn {
     type: average
-    label: "Inventory Turn"
+    label: "Rotación de Inventario"
     sql: ${inventory_turn} ;;
     link: {
       label: "{{ inventory_metrics_overview.material_group_name_wgbez._value }}"
@@ -160,7 +160,7 @@ view: inventory_metrics_overview {
 
   dimension: material_group_name_wgbez {
     type: string
-    label: "Material Group"
+    label: "Grupo de Materiales"
     sql: ${TABLE}.MaterialGroupName_WGBEZ ;;
     hidden: no
   }
@@ -210,6 +210,7 @@ view: inventory_metrics_overview {
     convert_tz: no
     datatype: date
     sql: ${TABLE}.MonthEndDate ;;
+    label: "Mes de cierre"
     hidden: no
   }
 
