@@ -1,13 +1,13 @@
-- dashboard: sap_order_to_cash_o2c_04_b_sales_performance_by_divisionperformance_tuning
-  title: "Sales Performance by Division"
+- dashboard: sap_order_to_cash_o2c_04_a_sales_performance_by_distribution_channelperformance_tuning
+  title: "Sales Performance by Distribution Channel"
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: igss5BgFxqD1sKW7M88XTy
+  preferred_slug: Ji6XE0aGtwA6WHE7qp2qwf
   elements:
-  - title: New Tile
-    name: New Tile
-    model: cortex_sap_operational
+  - title: Untitled
+    name: Untitled
+    model: cortex_sap_operational_prd
     explore: sales_orders
     type: single_value
     fields: [sales_orders.Sales_performance]
@@ -37,31 +37,30 @@
     series_types: {}
     listen:
       Division: divisions_md.division_name_vtext
-      Product: materials_md.material_text_maktx
-      Region: countries_md.country_name_landx
-      Year: sales_orders.creation_date_erdat_date
       Currency: currency_conversion_new.tcurr
+      Year: sales_orders.creation_date_erdat_date
+      Region: countries_md.country_name_landx
       Sales Org: sales_organizations_md.sales_org_name_vtext
       Distribution Channel: distribution_channels_md.distribution_channel_name_vtext
-    row: 10
+      Product: materials_md.material_text_maktx
+    row: 11
     col: 0
     width: 24
     height: 2
-  - title: Sales Performance by Division
-    name: Sales Performance by Division
-    model: cortex_sap_operational
+  - title: Sales Performance by Distribution Channel
+    name: Sales Performance by Distribution Channel
+    model: cortex_sap_operational_prd
     explore: sales_orders
     type: looker_grid
-    fields: [divisions_md.division_name_vtext, distribution_channels_md.distribution_channel_name_vtext,
-      sales_organizations_md.sales_org_name_vtext, sales_orders.sales_document_vbeln,
-      sales_orders.item_posnr, materials_md.material_text_maktx, sales_orders.base_unit_of_measure_meins,
-      currency_conversion_new.ukurs, sales_orders.sales_order_value_line_item_source_currency,
-      sales_orders.currency_waerk, sales_orders.sales_order_value_glob_curr, currency_conversion_new.tcurr,
-      sales_orders.cumulative_order_quantity_kwmeng, sales_orders.max_sold_to_party_name,
-      sales_orders.max_ship_to_party_name, sales_orders.max_bill_to_party_name]
+    fields: [distribution_channels_md.distribution_channel_name_vtext, sales_organizations_md.sales_org_name_vtext,
+      divisions_md.division_name_vtext, sales_orders.sales_document_vbeln, sales_orders.item_posnr,
+      materials_md.material_text_maktx, sales_orders.base_unit_of_measure_meins, currency_conversion_new.ukurs,
+      sales_orders.sales_order_value_line_item_source_currency, sales_orders.currency_waerk,
+      sales_orders.sales_order_value_glob_curr, currency_conversion_new.tcurr, sales_orders.cumulative_order_quantity_kwmeng,
+      sales_orders.max_sold_to_party_name, sales_orders.max_ship_to_party_name, sales_orders.max_bill_to_party_name]
     filters: {}
     sorts: [sales_organizations_md.sales_org_name_vtext]
-    limit: 5000
+    limit: 500
     column_limit: 50
     show_view_names: false
     show_row_numbers: true
@@ -79,6 +78,15 @@
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     show_sql_query_menu_options: false
+    pinned_columns:
+      "$$$_row_numbers_$$$": left
+    column_order: ["$$$_row_numbers_$$$", distribution_channels_md.distribution_channel_name_vtext,
+      sales_organizations_md.sales_org_name_vtext, divisions_md.division_name_vtext,
+      sales_orders.sales_document_vbeln, sales_orders.item_posnr, sales_orders.max_sold_to_party_name,
+      sales_orders.max_ship_to_party_name, sales_orders.max_bill_to_party_name, sales_orders.cumulative_order_quantity_kwmeng,
+      materials_md.material_text_maktx, sales_orders.base_unit_of_measure_meins, currency_conversion_new.ukurs,
+      sales_orders.sales_order_value_line_item_source_currency, sales_orders.currency_waerk,
+      sales_orders.sales_order_value_glob_curr, currency_conversion_new.tcurr]
     show_totals: true
     show_row_totals: true
     truncate_header: false
@@ -111,28 +119,19 @@
       sales_orders.sales_order_netvalue_global_currency:
         is_active: false
     defaults_version: 1
-    column_order: ["$$$_row_numbers_$$$", divisions_md.division_name_vtext, distribution_channels_md.distribution_channel_name_vtext,
-      sales_organizations_md.sales_org_name_vtext, sales_orders.sales_document_vbeln,
-      sales_orders.item_posnr, sales_orders.max_sold_to_party_name, sales_orders.max_ship_to_party_name,
-      sales_orders.max_bill_to_party_name, sales_orders.cumulative_order_quantity_kwmeng,
-      materials_md.material_text_maktx, sales_orders.base_unit_of_measure_meins, currency_conversion_new.ukurs,
-      sales_orders.sales_order_value_line_item_source_currency, sales_orders.currency_waerk,
-      sales_orders.sales_order_value_glob_curr, currency_conversion_new.tcurr]
-    pinned_columns:
-      "$$$_row_numbers_$$$": left
     series_column_widths: {}
     listen:
       Division: divisions_md.division_name_vtext
-      Product: materials_md.material_text_maktx
-      Region: countries_md.country_name_landx
-      Year: sales_orders.creation_date_erdat_date
       Currency: currency_conversion_new.tcurr
+      Year: sales_orders.creation_date_erdat_date
+      Region: countries_md.country_name_landx
       Sales Org: sales_organizations_md.sales_org_name_vtext
       Distribution Channel: distribution_channels_md.distribution_channel_name_vtext
+      Product: materials_md.material_text_maktx
     row: 0
     col: 0
     width: 24
-    height: 10
+    height: 11
   filters:
   - name: Year
     title: Year
@@ -144,7 +143,7 @@
       type: day_range_picker
       display: inline
       options: []
-    model: cortex_sap_operational
+    model: cortex_sap_operational_prd
     explore: sales_orders
     listens_to_filters: []
     field: sales_orders.creation_date_erdat_date
@@ -157,7 +156,7 @@
     ui_config:
       type: dropdown_menu
       display: inline
-    model: cortex_sap_operational
+    model: cortex_sap_operational_prd
     explore: sales_orders
     listens_to_filters: []
     field: currency_conversion_new.tcurr
@@ -170,7 +169,7 @@
     ui_config:
       type: checkboxes
       display: popover
-    model: cortex_sap_operational
+    model: cortex_sap_operational_prd
     explore: sales_orders
     listens_to_filters: []
     field: countries_md.country_name_landx
@@ -183,7 +182,7 @@
     ui_config:
       type: checkboxes
       display: popover
-    model: cortex_sap_operational
+    model: cortex_sap_operational_prd
     explore: sales_orders
     listens_to_filters: []
     field: sales_organizations_md.sales_org_name_vtext
@@ -196,7 +195,7 @@
     ui_config:
       type: checkboxes
       display: popover
-    model: cortex_sap_operational
+    model: cortex_sap_operational_prd
     explore: sales_orders
     listens_to_filters: []
     field: distribution_channels_md.distribution_channel_name_vtext
@@ -209,7 +208,7 @@
     ui_config:
       type: checkboxes
       display: popover
-    model: cortex_sap_operational
+    model: cortex_sap_operational_prd
     explore: sales_orders
     listens_to_filters: []
     field: divisions_md.division_name_vtext
@@ -222,7 +221,7 @@
     ui_config:
       type: checkboxes
       display: popover
-    model: cortex_sap_operational
+    model: cortex_sap_operational_prd
     explore: sales_orders
     listens_to_filters: []
     field: materials_md.material_text_maktx

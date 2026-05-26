@@ -1,15 +1,15 @@
 constant: CONNECTION_NAME {
-  value: "looker_qa"
+  value: "looker_prd"
   export: override_required
 }
 
 constant: GCP_PROJECT {
-  value: "lacostena-datalake-qa"
+  value: "lacostena-datalake-prd"
   export: override_required
 }
 
 constant: REPORTING_DATASET {
-  value: "QAS_REPORTING"
+  value: "PRD_REPORTING"
   export: override_required
 }
 
