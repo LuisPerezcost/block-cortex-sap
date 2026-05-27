@@ -250,7 +250,7 @@ explore: materials_valuation_v2 {
 
 explore: inventory_metrics_overview {
   sql_always_where: ${inventory_metrics_overview.client_mandt} = '{{ _user_attributes['client_id_rep'] }}'
-  and ${language_map.looker_locale}='{{ _user_attributes['locale'] }}';;
+    and ${language_map.looker_locale}='{{ _user_attributes['locale'] }}';;
 
   join: inventory_by_plant {
     type: left_outer
@@ -258,6 +258,10 @@ explore: inventory_metrics_overview {
     fields: [inventory_by_plant.stock_characteristic]
     sql_on: ${inventory_by_plant.client_mandt} = ${inventory_metrics_overview.client_mandt}
       and ${inventory_by_plant.company_code_bukrs} = ${inventory_metrics_overview.company_code_bukrs}
+      and ${inventory_by_plant.plant_werks} = ${inventory_metrics_overview.plant_werks}
+      and ${inventory_by_plant.material_number_matnr} = ${inventory_metrics_overview.material_number_matnr}
+      and ${inventory_by_plant.language_spras} = ${inventory_metrics_overview.language_spras}
+      and ${inventory_by_plant.target_currency} = ${inventory_metrics_overview.target_currency}
     ;;
   }
 

@@ -308,6 +308,7 @@ view: inventory_by_plant {
     type: string
     label: "Stock Characteristic"
     sql: ${TABLE}.StockCharacteristic ;;
+
     hidden: no
   }
 
