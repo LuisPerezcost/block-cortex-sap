@@ -102,7 +102,7 @@ view: inventory_metrics_overview {
     sql:  ${days_of_supply} ;;
     label: "Días de Suministro"
     value_format: "0"
-    filters: [days_of_supply : ">=0"]
+    filters: [days_of_supply : ">0"]
     drill_fields: [material_group_name_wgbez,material_type,material_number_matnr,material_text_maktx,average_days_of_supply]
     hidden: no
   }
